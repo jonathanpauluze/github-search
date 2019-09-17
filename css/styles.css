@@ -99,13 +99,17 @@
 
 .user-link {
   width: 100%;
-  background: #6e6e6e;
+  background-color: #6e6e6e;
   color: #fff;
   text-decoration: none;
   text-align: center;
   border-radius: 4px;
   padding: 5px 10px;
   margin-top: 20px;
+}
+
+.user-link:hover {
+  background-color: #333;
 }
 
 .user-link span {
