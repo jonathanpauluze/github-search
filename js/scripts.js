@@ -12,29 +12,28 @@ async function getInfo(e) {
     if(searchQuery !== '') {
       response = await fetch(`https://api.github.com/users/${searchQuery}`)
       response = await response.json()
-      // console.log(response.url)
+      
       setData()
     }
   }
 }
 
 function setData(){
-  const date = new Date(response.created_at)
+  const createdAt = new Date(response.created_at)
   const opt = {day: 'numeric', month: 'long', year: 'numeric'}
-  console.log(date)
-  const memberSince = new Intl.DateTimeFormat('pt-BR', opt).format(date)
+  const memberSince = new Intl.DateTimeFormat('pt-BR', opt).format(createdAt)
 
   infoContainer.classList.add('card-border')
   infoContainer.innerHTML = `
     <img class="user-pic" src="${response.avatar_url}"/>
-    <h2 class="user-name">${response.name}</h2>
-    <p class="user-bio">${response.bio}</p>
+    <h2 class="user-name">${response.name || '[Sem nome]'}</h2>
+    <p class="user-bio">${response.bio || '[Sem bio]'}</p>
     <hr class="user-sep"/>
-    <p class="user-info"><i class="fas fa-map-marker-alt"></i> ${response.location}</p>
+    <p class="user-info"><i class="fas fa-map-marker-alt"></i> ${response.location || '[Sem endereço]'}</p>
     <p class="user-info"><i class="fas fa-calendar-alt"></i> ${memberSince}</p>
     <a class="user-link" href="${response.html_url}" target="_blank">
       <i class="fab fa-github"></i>
-      <span>Visit Profile</span>
+      <span>Visitar Profil</span>
       <i class="fas fa-arrow-right"></i>
     </a>
   `
