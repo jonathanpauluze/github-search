@@ -33,7 +33,7 @@ function setData(){
     <p class="user-info"><i class="fas fa-calendar-alt"></i> ${memberSince}</p>
     <a class="user-link" href="${response.html_url}" target="_blank">
       <i class="fab fa-github"></i>
-      <span>Visitar Profil</span>
+      <span>Visitar Perfil</span>
       <i class="fas fa-arrow-right"></i>
     </a>
   `
